@@ -11,9 +11,11 @@ def is_legal_word(uchar):
     if(uchar >= u'\u4E00' and uchar <= u'\u9FA5'):
         #print("1")
         return True
+    """判断一个Unicode是否是数字"""
     elif(uchar >= u'\u0030' and uchar <= u'\u0039'):
         #print("2")
         return True
+    """判断一个Unicode是否大小写"""
     elif(( uchar >= u'\u0041' and uchar <= u'\u005A' ) or ( uchar >= u'\u0061' and uchar <= u'\u007A')):
         #print("3")
         return uchar.lower()
