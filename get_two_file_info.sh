@@ -2,5 +2,5 @@
 #当读第一个文件时将将其第一列的数据读入到字典中，读第二列的时候判断其数据是不是在第一列
 awk -F "\t" 'NR==FNR{a[$1]=0;next} {if($1 in a){print $1}}' file1 file2
 
-
-
+#得到第二个数据中 不在第一个文件中的数据
+awk -F "\t" 'NR==FNR{a[$1]=0;next} {if(!($1 in a)){print $1}}' file1 file2
