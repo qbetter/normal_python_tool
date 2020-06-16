@@ -4,3 +4,6 @@ awk -F "\t" 'NR==FNR{a[$1]=0;next} {if($1 in a){print $1}}' file1 file2
 
 #得到第二个数据中 不在第一个文件中的数据
 awk -F "\t" 'NR==FNR{a[$1]=0;next} {if(!($1 in a)){print $1}}' file1 file2
+
+#将两个文件按照行相同的方式合并在一起
+awk 'NR==FNR{a[i]=$0;i++}NR>FNR{print a[j]" "$0;j++}' file1 file2
