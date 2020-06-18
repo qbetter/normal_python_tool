@@ -7,3 +7,12 @@ awk -F "\t" 'NR==FNR{a[$1]=0;next} {if(!($1 in a)){print $1}}' file1 file2
 
 #将两个文件按照行相同的方式合并在一起
 awk 'NR==FNR{a[i]=$0;i++}NR>FNR{print a[j]" "$0;j++}' file1 file2
+
+
+#统计文件中第二列中为0和不为0的是多少条
+head feature_2_cover_online_mid_file | awk -F" " '{if($2==0) a[1]+=1; else a[2]+=1;} END{for(i in a) print i" "a[i]}'
+feature_2_cover_online_mid_file数据格式：
+18290820695358123917 0
+1836787678714956141 5
+15416673651166613238 0
+
