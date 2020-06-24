@@ -16,3 +16,9 @@ feature_2_cover_online_mid_file数据格式：
 1836787678714956141 5
 15416673651166613238 0
 
+
+#统计文件的数据，每一行数据都是以逗号分割的，去重之后重定向的文件中
+cat item_feature_notitle_2020-06-21  |cut -f2 | awk -F"," '{for(i=1;i<=NF;i++) print $i}' | sort | uniq > uniq_dev_slot_hash_item_feature_notitle_2020-06-21
+
+
+
